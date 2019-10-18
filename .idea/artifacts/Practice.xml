@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Practice">
+    <output-path>$PROJECT_DIR$/out/artifacts/Practice</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="PhpStudy Exploit Tool Beta 1" />
+        <option name="vendor" value="PhpStudy Exploit Tool Beta 1" />
+        <option name="version" value="1.0" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Practice.jar">
+        <element id="module-output" name="Practice" />
+      </element>
+    </root>
+  </artifact>
+</component>
