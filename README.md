@@ -1,4 +1,4 @@
-# Update 2019-10-22 Beat 2
+# Update 2019-10-22 Beta 2
 * 添加getshell功能  
 
 
