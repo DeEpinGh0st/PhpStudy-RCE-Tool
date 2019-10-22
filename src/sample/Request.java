@@ -83,12 +83,13 @@ public class Request {
     }
 
     /**
-     * 2.发送Get请求
+     * 发送GET请求
      * @param url
      * @param params
-     * 表示链接后面的一些参数 如name=ghoset&pass=ghoset
-     * @return
-     */
+     * @param proxy
+     * @param payload
+     * @throws Exception
+     * */
     public String sendGet(String url , String params , Proxy proxy, String payload) throws Exception {
         StringBuilder builder = new StringBuilder();
 

@@ -1,12 +1,12 @@
 package sample;
 
-public class Hex2Str {
+public class Convert {
     /**
      * 字符串转换成为16进制(无需Unicode编码)
      * @param str
      * @return
      */
-    public static String str2HexStr(String str) {
+    public static String Str2Hex(String str) {
         char[] chars = "0123456789ABCDEF".toCharArray();
         StringBuilder sb = new StringBuilder("");
         byte[] bs = str.getBytes();
@@ -27,7 +27,7 @@ public class Hex2Str {
      * @param hexStr
      * @return
      */
-    public static String strhex2Str(String hexStr) {
+    public static String Hex2Str(String hexStr) {
         String str = "0123456789ABCDEF";
         char[] hexs = hexStr.toCharArray();
         byte[] bytes = new byte[hexStr.length() / 2];

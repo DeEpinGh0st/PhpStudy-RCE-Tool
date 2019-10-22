@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("PhpStudy Exploit Tool Beta 1");
+        primaryStage.setTitle("PhpStudy Exploit Tool (Beta 2)");
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.resizableProperty().setValue(Boolean.FALSE);
         primaryStage.show();

