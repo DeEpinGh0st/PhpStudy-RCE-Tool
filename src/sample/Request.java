@@ -134,7 +134,7 @@ public class Request {
         if (builder.indexOf("<!DOCTYPE") == -1){
             return builder.toString();
         }
-        return builder.substring(0, builder.indexOf("<!DOCTYPE"));
+        return builder.substring(0, builder.indexOf("<!DOCTYPE")).replace("\r\n","");
     }
 
 }

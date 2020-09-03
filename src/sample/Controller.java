@@ -42,6 +42,7 @@ public class Controller {
     @FXML
     private  void F_btnAction(ActionEvent event) throws Exception{
         Request request =new Request();
+        Output_Tb.setText("");
         Target = Target_Tb.getText().trim();
         WebPath = Wpath_Tb.getText().trim();
         Name = Name_Tb.getText().trim();
